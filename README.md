@@ -31,3 +31,20 @@ git remote add origin https://github.com/mohammedazizul/university-management-au
 
 git push -u origin main
 
+setup mongoDB database connection in server.ts
+
+connect remotely with mongoDB
+
+npm i --save-dev @types/express
+
+npm add ts-node-dev --dev
+
+update package.json with - 
+"start": "ts-node-dev --respawn --transpile-only src/server.ts",
+
+npm start
+
+npm add cors
+
+npm i --save-dev @types/cors
+
