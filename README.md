@@ -154,3 +154,8 @@ to create husky hook
 npm husky add .husky/pre-commit "npm test"
 
 git add .husky/pre-commit
+
+update in package.json
+"lint-prettier": "npm lint:check && npm prettier:check",
+
+npm install --save-dev lint-staged
