@@ -1,36 +1,38 @@
 to initialized the project
+```
 npm init
-
+```
 to install typescript as Development dependency, since will run in JS not in TS
+```
 npm add -D typescript
-
 npm add express
-
 npm add mongoose
-
+```
 to initialized the typescript config file
+```
 tsc --init
-
+```
 update root directory from tsconfig.json
+```
 "rootDir": "./src"
-
+```
 update out directory for JS from tsconfig.json
+```
 "outDir": "./dist", 
-
+```
+to add dotenv
+```
 npm add dotenv
-
+```
+to initialize git
+```
 git init 
-
 git add  .
-
 git commit -m"message"
-
 git branch -M main
-
 git remote add origin https://github.com/mohammedazizul/university-management-auth-service.git
-
 git push -u origin main
-
+```
 setup mongoDB database connection in server.ts
 
 connect remotely with mongoDB
@@ -169,4 +171,15 @@ create .eslintrc file in root and add followings -
 ```
 
 .vscode folder and settings.json added to config vscode
+
+to toggle between development & production command
+
+set NODE_ENV=production && npm start
+
+console.log(app.get('env'))
+
+or update in .env 
+
+NODE_ENV=development
+
 

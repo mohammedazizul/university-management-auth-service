@@ -1,5 +1,5 @@
-import express, { Application, Request, Response } from 'express'
 import cors from 'cors'
+import express, { Application, Request, Response } from 'express'
 import usersRouter from './app/modules/users/users.route'
 
 
@@ -14,6 +14,8 @@ app.use(express.urlencoded({ extended: true }))
 
 // Application routes 
 app.use('/api/v1/users/', usersRouter)
+
+// console.log(app.get('env'))
 
 // test
 app.get('/', async (req: Request, res: Response) => {
