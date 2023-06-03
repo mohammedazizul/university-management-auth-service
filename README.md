@@ -159,3 +159,14 @@ update in package.json
 "lint-prettier": "npm lint:check && npm prettier:check",
 
 npm install --save-dev lint-staged
+
+create .eslintrc file in root and add followings - 
+```
+  "no-console": "error",
+  "no-undef": "error",
+  "no-unused-expressions": "error",
+  "no-unreachable": "error",
+```
+
+.vscode folder and settings.json added to config vscode
+
