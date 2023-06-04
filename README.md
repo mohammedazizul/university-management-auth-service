@@ -182,4 +182,10 @@ or update in .env
 
 NODE_ENV=development
 
+adding winston logger
 
+npm add winston
+
+new directory added src/shared/logger.ts
+
+npm i winston-daily-rotate-file
