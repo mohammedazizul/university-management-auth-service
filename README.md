@@ -189,3 +189,5 @@ npm add winston
 new directory added src/shared/logger.ts
 
 npm i winston-daily-rotate-file
+
+error handling 
