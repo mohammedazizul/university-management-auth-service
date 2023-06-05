@@ -2,7 +2,7 @@ import path from 'path'
 import winston, { createLogger, format, transports } from 'winston'
 import DailyRotateFile from 'winston-daily-rotate-file'
 
-const { combine, timestamp, label, printf, prettyPrint } = format
+const { combine, timestamp, label, printf } = format
 
 // custom log format
 const myFormat = printf(({ level, message, label, timestamp }) => {
@@ -21,7 +21,7 @@ const logger = winston.createLogger({
     label({ label: 'UMAS' }),
     timestamp(),
     myFormat,
-    prettyPrint()
+    // prettyPrint()
   ),
   transports: [
     new transports.Console(),
