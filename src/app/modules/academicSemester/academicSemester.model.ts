@@ -6,10 +6,7 @@ import {
   academicSemesterMonths,
   academicSemesterTitles,
 } from './academicSemester.constant';
-import {
-  AcademicSemesterModel,
-  IAcademicSemester,
-} from './academicSemester.interface';
+import { IAcademicSemester } from './academicSemester.interface';
 
 const academicSemesterSchema = new Schema<IAcademicSemester>(
   {
@@ -40,24 +37,27 @@ const academicSemesterSchema = new Schema<IAcademicSemester>(
   },
   {
     timestamps: true,
+    toJSON: {
+      virtuals: true,
+    },
   }
 );
 
-// handling same year same semester issue 
-// to check if same year and same semester already exists or not
-// pre hook from mongoDB to check - need to before the model
-academicSemesterSchema.pre('save', async function(next) {
-  const isExists = await AcademicSemester.findOne({
+academicSemesterSchema.pre('save', async function (next) {
+  const isExist = await AcademicSemester.findOne({
     title: this.title,
-    year: this.year
-  })
-  if(isExists) {
-    throw new ApiError(httpStatus.CONFLICT, 'Academic semester is already exists')
+    year: this.year,
+  });
+  if (isExist) {
+    throw new ApiError(
+      httpStatus.CONFLICT,
+      'Academic semester is already exist !'
+    );
   }
-  next() // mongoose hook next not express next
-})
+  next();
+});
 
-export const AcademicSemester = model<IAcademicSemester, AcademicSemesterModel>(
+export const AcademicSemester = model<IAcademicSemester>(
   'AcademicSemester',
   academicSemesterSchema
 );
