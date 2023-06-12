@@ -195,3 +195,7 @@ error handling
 zod initialized
 
 npm add zod
+
+http-status
+
+npm add http-status
