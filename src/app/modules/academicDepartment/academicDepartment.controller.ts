@@ -5,8 +5,8 @@ import pick from '../../../shared/pick';
 import { paginationFields } from '../../../constants/pagination';
 import catchAsync from '../../../shared/catchAsync';
 import sendResponse from '../../../shared/sendResponse';
-import { academicDepartmentFilterableFields } from './academicDepartment.constant';
-import { IAcademicDepartment } from './academicDepartment.interface';
+import { academicDepartmentFilterableFields } from './academicDepartment.constants';
+import { IAcademicDepartment } from './academicDepartment.interfaces';
 import { AcademicDepartmentService } from './academicDepartment.service';
 
 const createDepartment = catchAsync(async (req: Request, res: Response) => {

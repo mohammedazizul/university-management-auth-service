@@ -2,11 +2,11 @@ import { SortOrder } from 'mongoose';
 import { paginationHelpers } from '../../../helpers/paginationHelper';
 import { IGenericResponse } from '../../../interfaces/common';
 import { IPaginationOptions } from '../../../interfaces/pagination';
-import { academicDepartmentSearchableFields } from './academicDepartment.constant';
+import { academicDepartmentSearchableFields } from './academicDepartment.constants';
 import {
-    IAcademicDepartment,
-    IAcademicDepartmentFilters,
-} from './academicDepartment.interface';
+  IAcademicDepartment,
+  IAcademicDepartmentFilters,
+} from './academicDepartment.interfaces';
 import { AcademicDepartment } from './academicDepartment.model';
 
 const getAllDepartments = async (

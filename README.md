@@ -202,3 +202,5 @@ npm add zod
 http-status
 
 npm add http-status
+
+npm add bcrypt
