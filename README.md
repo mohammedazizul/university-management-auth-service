@@ -4,6 +4,9 @@ npm init
 ```
 to install typescript as Development dependency, since will run in JS not in TS
 ```
+npm install typescript --save-dev
+npm install express mongoose cors
+
 npm add -D typescript
 npm add express
 npm add mongoose
@@ -199,3 +202,5 @@ npm add zod
 http-status
 
 npm add http-status
+
+npm add bcrypt

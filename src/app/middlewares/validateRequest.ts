@@ -3,7 +3,6 @@ import { AnyZodObject, ZodEffects } from 'zod';
 
 const validateRequest =
   (schema: AnyZodObject | ZodEffects<AnyZodObject>) =>
-  // returning req, res, next to next controller if no error
   async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
       await schema.parseAsync({

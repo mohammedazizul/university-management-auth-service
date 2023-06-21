@@ -1,32 +1,32 @@
 import { Server } from 'http';
 import mongoose from 'mongoose';
-import config from '../config';
 import app from './app';
-import { errorLogger, logger } from './shared/logger';
-
-let server: Server;
+import config from './config/index';
+import { errorlogger, logger } from './shared/logger';
 
 process.on('uncaughtException', error => {
-  errorLogger.error(error);
+  errorlogger.error(error);
   process.exit(1);
 });
 
-async function main() {
+let server: Server;
+
+async function bootstrap() {
   try {
     await mongoose.connect(config.database_url as string);
-    logger.info('MongoDB Database Connected Successfully!');
+    logger.info(`🛢   Database is connected successfully`);
 
-    app.listen(config.port, () => {
-      logger.info(`Application listening on prot ${config.port}`);
+    server = app.listen(config.port, () => {
+      logger.info(`Application  listening on port ${config.port}`);
     });
-  } catch (error) {
-    errorLogger.error('MongoDB Database Connection Error:', error);
+  } catch (err) {
+    errorlogger.error('Failed to connect database', err);
   }
 
-  process.on('unhandledRejection', err => {
+  process.on('unhandledRejection', error => {
     if (server) {
       server.close(() => {
-        errorLogger.error(err);
+        errorlogger.error(error);
         process.exit(1);
       });
     } else {
@@ -35,10 +35,10 @@ async function main() {
   });
 }
 
-main().catch(err => errorLogger.error('MongoDB Connection Error: ', err));
+bootstrap();
 
 process.on('SIGTERM', () => {
-  logger.info('SIGTERM received!!!');
+  logger.info('SIGTERM is received');
   if (server) {
     server.close();
   }
