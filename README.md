@@ -204,3 +204,14 @@ http-status
 npm add http-status
 
 npm add bcrypt
+
+npm add @types/bcrypt
+
+npm add jsonwebtoken
+
+npm add @types/jsonwebtoken
+
+npm add cookie-parser
+
+npm add @types/cookie-parser
+

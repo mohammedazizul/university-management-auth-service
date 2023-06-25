@@ -29,7 +29,7 @@ const createStudent = async (
   // set role
   user.role = 'student';
 
-  const academicsemester = await AcademicSemester.findById(
+  const academicSemester = await AcademicSemester.findById(
     student.academicSemester
   ).lean();
 
@@ -39,7 +39,7 @@ const createStudent = async (
   try {
     session.startTransaction();
 
-    const id = await generateStudentId(academicsemester as IAcademicSemester);
+    const id = await generateStudentId(academicSemester as IAcademicSemester);
 
     user.id = id;
     student.id = id;
@@ -149,6 +149,7 @@ const createFaculty = async (
 
   return newUserAllData;
 };
+
 const createAdmin = async (
   admin: IAdmin,
   user: IUser

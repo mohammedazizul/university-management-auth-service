@@ -22,6 +22,10 @@ const createFaculty = catchAsync(async (req: Request, res: Response) => {
 });
 
 const getAllFaculties = catchAsync(async (req: Request, res: Response) => {
+  // eslint-disable-next-line no-console
+  console.log("req.headers.authorization", req.headers.authorization);
+  // eslint-disable-next-line no-console
+  console.log("req.user", req.user);
   const filters = pick(req.query, academicFacultyFilterableFields);
   const paginationOptions = pick(req.query, paginationFields);
 

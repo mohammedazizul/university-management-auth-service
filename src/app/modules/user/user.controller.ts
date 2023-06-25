@@ -8,6 +8,10 @@ import { UserService } from './user.service';
 
 const createStudent: RequestHandler = catchAsync(
   async (req: Request, res: Response) => {
+
+    // eslint-disable-next-line no-console
+    console.log("cookie", req.cookies); 
+
     const { student, ...userData } = req.body;
     const result = await UserService.createStudent(student, userData);
 
